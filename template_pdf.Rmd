@@ -15,9 +15,9 @@ options(xtable.comment = FALSE)
 
 ```
 
-## Ärade kund
+## Ärade `r x`
 
-Här ett ditt protokoll `r x` som det ser ut `r Sys.Date()` - var så god!
+Här ett ditt protokoll som det ser ut `r Sys.Date()` - var så god!
 
 ``` {r}
 data_k <- data %>% 
