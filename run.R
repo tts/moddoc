@@ -4,22 +4,19 @@ library(tidyverse)
 
 data <- read_excel("data.xlsx")
 
-#--------------
-# Render to PDF
-#--------------
 
 sapply(unique(data$Kund), function(x) {
 
+  #--------------
+  # Render to PDF
+  #--------------
+  
   rmarkdown::render("template_pdf.Rmd",
                     output_file = paste0(x, ".pdf"))
   
-})
-
-#-------------
-# Write Excel
-#-------------
-
-sapply(unique(data$Kund), function(x) {
+  #-------------
+  # Write Excel
+  #-------------
   
   data_k <- data %>% 
     filter(Kund == x) %>% 
@@ -30,4 +27,5 @@ sapply(unique(data$Kund), function(x) {
   writexl::write_xlsx(data_k, f, col_names = TRUE)
   
 })
+
 
